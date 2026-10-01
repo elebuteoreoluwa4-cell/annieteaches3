@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Confirm Your Spot · Coach Annie</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --ink: #0D0D0D;
+      --cream: #FAF7F2;
+      --gold: #C9A84C;
+      --gold-light: #E8C97A;
+      --deep: #1A1209;
+      --muted: #6B6560;
+      --white: #FFFFFF;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--ink);
+      color: var(--cream);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .card {
+      max-width: 460px;
+      width: 100%;
+    }
+
+    .emoji {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      font-weight: 900;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    p {
+      color: rgba(250,247,242,0.75);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--deep);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 16px 36px;
+      border-radius: 4px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .btn:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    .note {
+      margin-top: 20px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+
+    <div class="emoji">🎉</div>
+
+    <h1>
+      Congratulations — You're <em>One Step Away</em>
+    </h1>
+
+    <p>
+      Click below to unlock full access to tonight's live training.
+    </p>
+
+    <a href="https://event.webinarjam.com/o1znx7/register/qwk375tm" class="btn">
+      CONTINUE TO TRAINING →
+    </a>
+
+    <p class="note">
+      Takes less than 5 seconds.
+    </p>
+
+  </div>
+
+</body>
+</html>

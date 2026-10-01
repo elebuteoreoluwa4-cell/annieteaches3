@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Ghostwriting Training · Coach Annie</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --ink: #0D0D0D;
+      --cream: #FAF7F2;
+      --gold: #C9A84C;
+      --gold-light: #E8C97A;
+      --deep: #1A1209;
+      --muted: #6B6560;
+      --white: #FFFFFF;
+      --divider: rgba(201,168,76,0.25);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--ink);
+      color: var(--cream);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .banner {
+      background: var(--gold);
+      color: var(--deep);
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .banner span {
+      display: inline-block;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { opacity:1 }
+      50% { opacity:0.7 }
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+    }
+
+    .hero-image {
+      position: relative;
+      overflow: hidden;
+      min-height: 600px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    .hero-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right, transparent 60%, var(--ink) 100%),
+        linear-gradient(to top, var(--ink) 0%, transparent 30%);
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 60px 80px 40px;
+    }
+
+    .eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: rgba(250,247,242,0.7);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 420px;
+    }
+
+    /* WEBINAR FORM CARD */
+    .form-card {
+      background: var(--cream);
+      color: var(--ink);
+      border-radius: 4px;
+      padding: 36px 32px;
+      max-width: 520px;
+      width: 100%;
+    }
+
+    .form-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--deep);
+    }
+
+    .form-card > p:first-of-type {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .form-note {
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    .wj-embed-wrapper {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--divider);
+      margin: 0;
+    }
+
+    section {
+      padding: 80px 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .container-wide {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .story {
+      background: var(--ink);
+    }
+
+    .story-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .story h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: var(--white);
+    }
+
+    .story p {
+      color: rgba(250,247,242,0.72);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .story-quote {
+      border-left: 2px solid var(--gold);
+      padding-left: 20px;
+      margin: 28px 0;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--gold-light);
+      line-height: 1.5;
+    }
+
+    .transformation {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+      margin: 40px 0;
+    }
+
+    .transform-item {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+    }
+
+    .transform-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .transform-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px;
+      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .lifestyle {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+      margin-top: 3px;
+    }
+
+    .lifestyle-item {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+
+    .lifestyle-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+    }
+
+    .lifestyle-item:hover img {
+      transform: scale(1.03);
+    }
+
+    .lifestyle-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 14px 16px;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      font-size: 0.78rem;
+      color: var(--cream);
+    }
+
+    .lifestyle-caption strong {
+      color: var(--gold);
+      display: block;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .learn {
+      background: #111009;
+    }
+
+    .learn-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .learn-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.15;
+      margin-top: 12px;
+    }
+
+    .lessons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2px;
+    }
+
+    .lesson {
+      background: rgba(255,255,255,0.03);
+      padding: 32px 28px;
+      border: 1px solid var(--divider);
+      transition: background 0.2s;
+    }
+
+    .lesson:hover {
+      background: rgba(201,168,76,0.06);
+    }
+
+    .lesson-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--divider);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .lesson h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .lesson p {
+      font-size: 0.82rem;
+      color: rgba(250,247,242,0.55);
+      line-height: 1.7;
+    }
+
+    .proof {
+      background: var(--ink);
+    }
+
+    .proof-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .proof-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 900;
+      color: var(--white);
+    }
+
+    .proof-header p {
+      color: rgba(250,247,242,0.55);
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3px;
+    }
+
+    .result-item {
+      overflow: hidden;
+    }
+
+    .result-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.4s;
+    }
+
+    .result-item:hover img {
+      transform: scale(1.02);
+    }
+
+    .cta-bottom {
+      background: linear-gradient(135deg, #1A1209 0%, #0D0D0D 100%);
+      text-align: center;
+      padding: 100px 20px;
+      border-top: 1px solid var(--divider);
+    }
+
+    .cta-bottom h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 16px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-bottom p {
+      color: rgba(250,247,242,0.6);
+      font-size: 0.95rem;
+      margin-bottom: 36px;
+    }
+
+    footer {
+      background: var(--deep);
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 0.72rem;
+      color: rgba(250,247,242,0.3);
+      letter-spacing: 0.06em;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .hero-image {
+        min-height: 55vw;
+        max-height: 420px;
+      }
+
+      .hero-image::after {
+        background: linear-gradient(to top, var(--ink) 0%, transparent 50%);
+      }
+
+      .hero-content {
+        padding: 40px 24px 60px;
+      }
+
+      .form-card {
+        max-width: 100%;
+      }
+
+      .transformation {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .lifestyle {
+        grid-template-columns: 1fr;
+      }
+
+      .results-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      section {
+        padding: 60px 20px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', '1729300894863636');
+  fbq('track', 'PageView');
+  </script>
+
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1729300894863636&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
+  <!-- TikTok Pixel Code -->
+  <script>
+  !function (w, d, t) {
+    w.TiktokAnalyticsObject=t;
+    var ttq=w[t]=w[t]||[];
+
+    ttq.methods=[
+      "page","track","identify","instances","debug","on","off",
+      "once","ready","alias","group","enableCookie","disableCookie",
+      "holdConsent","revokeConsent","grantConsent"
+    ];
+
+    ttq.setAndDefer=function(t,e){
+      t[e]=function(){
+        t.push([e].concat(Array.prototype.slice.call(arguments,0)))
+      }
+    };
+
+    for(var i=0;i<ttq.methods.length;i++)
+      ttq.setAndDefer(ttq,ttq.methods[i]);
+
+    ttq.instance=function(t){
+      for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)
+        ttq.setAndDefer(e,ttq.methods[n]);
+      return e
+    };
+
+    ttq.load=function(e,n){
+      var r="https://analytics.tiktok.com/i18n/pixel/events.js",
+          o=n&&n.partner;
+
+      ttq._i=ttq._i||{};
+      ttq._i[e]=[];
+      ttq._i[e]._u=r;
+      ttq._t=ttq._t||{};
+      ttq._t[e]=+new Date;
+      ttq._o=ttq._o||{};
+      ttq._o[e]=n||{};
+
+      n=document.createElement("script");
+      n.type="text/javascript";
+      n.async=!0;
+      n.src=r+"?sdkid="+e+"&lib="+t;
+
+      e=document.getElementsByTagName("script")[0];
+      e.parentNode.insertBefore(n,e)
+    };
+
+    ttq.load('D9QRG3JC77U8CC7TSRL0');
+    ttq.page();
+
+  }(window, document, 'ttq');
+  </script>
+  <!-- End TikTok Pixel Code -->
+
+</head>
+
+<body>
+
+<div class="banner">
+  <span>🔴 Exclusive Live Training &nbsp;·&nbsp; Spots Are Limited &nbsp;·&nbsp; Register Now</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+
+  <div class="hero-image">
+    <img src="IMG_7400.jpeg" alt="Coach Annie" />
+  </div>
+
+  <div class="hero-content">
+
+    <div class="eyebrow">
+      Live Training · Tonight
+    </div>
+
+    <h1 class="hero-title">
+      How to Start Earning in Dollars Through
+      <em>Ghostwriting</em> — Even as a Complete Beginner
+    </h1>
+
+    <p class="hero-sub">
+      The exact system Nigerian writers are using right now to land dollar contracts,
+      receive payments into their local accounts, and build income on just a phone.
+    </p>
+
+    <!-- RESERVE YOUR SPOT / WEBINARJAM DUPLICATE -->
+    <div class="form-card">
+
+      <h3>Reserve Your Spot</h3>
+
+      <p>
+        Training for Nigerians who want to earn in dollars through ghostwriting.
+      </p>
+
+      <!-- DUPLICATE WEBINAR -->
+      <div class="wj-embed-wrapper" data-webinar-hash="wql18whl">
+        <script src="https://event.webinarjam.com/register/wql18whl/embed-form?formButtonText=Register&formAccentColor=%23f6c329&formAccentOpacity=0.95&formBgColor=%23ffffff&formBgOpacity=1"></script>
+      </div>
+
+      <p class="form-note">
+        Limited Slot.
+      </p>
+
+    </div>
+
+  </div>
+</div>
+
+<hr class="section-divider" />
+
+<!-- STORY -->
+<section class="story">
+
+  <div class="container">
+
+    <div class="story-label">
+      My Story
+    </div>
+
+    <h2>
+      I Started With Nothing.<br/>
+      Now Everything Has Changed.
+    </h2>
+
+    <p>
+      I was a Nigerian girl with no connections, no writing degree,
+      and no idea how to make money online. I was struggling — really struggling.
+      Then I discovered ghostwriting.
+    </p>
+
+    <p>
+      I learned the skill from scratch on my phone. Found the right platforms.
+      Landed my first dollar contract. And everything changed fast.
+      Not slowly. <strong style="color:var(--gold)">Fast.</strong>
+    </p>
+
+    <div class="story-quote">
+      "I went from that small room to buying myself a Mercedes and two brand new
+      iPhones — all from ghostwriting."
+    </div>
+
+    <p>
+      Tonight I'm giving you the exact system that made this possible.
+      Free. No strings.
+    </p>
+
+    <div class="transformation">
+
+      <div class="transform-item">
+        <img src="before.jpeg" alt="Where I started" />
+        <div class="transform-label">
+          ✦ Where I Started
+        </div>
+      </div>
+
+      <div class="transform-item">
+        <img src="car.jpeg" alt="Where ghostwriting took me" />
+        <div class="transform-label">
+          ✦ Where Ghostwriting Took Me
+        </div>
+      </div>
+
+    </div>
+
+    <div class="lifestyle">
+
+      <div class="lifestyle-item">
+        <img src="phones.jpeg" alt="Bought two brand new iPhones" />
+        <div class="lifestyle-caption">
+          <strong>After Ghostwriting</strong>
+          Bought myself two brand new iPhones
+        </div>
+      </div>
+
+      <div class="lifestyle-item">
+        <img src="IMG_7400.jpeg" alt="Coach Annie today" />
+        <div class="lifestyle-caption">
+          <strong>Coach Annie Today</strong>
+          Teaching others to do the same
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- WHAT YOU'LL LEARN -->
+<section class="learn">
+
+  <div class="container-wide">
+
+    <div class="learn-header">
+
+      <div class="eyebrow" style="justify-content:center;">
+        <span>Tonight's Live Training</span>
+      </div>
+
+      <h2>
+        Everything You Need to Know<br/>
+        to Start Earning as a Ghostwriter
+      </h2>
+
+    </div>
+
+    <div class="lessons">
+
+      <div class="lesson">
+        <div class="lesson-num">01</div>
+        <h3>What Ghostwriting Actually Is</h3>
+        <p>
+          How complete beginners are earning in dollars right now —
+          and why this skill works perfectly from Nigeria.
+        </p>
+      </div>
+
+      <div class="lesson">
+        <div class="lesson-num">02</div>
+        <h3>Where to Find High-Paying Clients</h3>
+        <p>
+          20+ verified platforms actively hiring ghostwriters today.
+          No referrals. No connections. No portfolio required.
+        </p>
+      </div>
+
+      <div class="lesson">
+        <div class="lesson-num">03</div>
+        <h3>How to Use AI to Write Faster</h3>
+        <p>
+          The exact ChatGPT workflow that lets you deliver more work
+          in less time so you can take on more contracts.
+        </p>
+      </div>
+
+      <div class="lesson">
+        <div class="lesson-num">04</div>
+        <h3>Landing Your First Dollar Contract</h3>
+        <p>
+          The exact pitch and profile strategy that has helped beginners
+          land their first paid contract without experience.
+        </p>
+      </div>
+
+      <div class="lesson">
+        <div class="lesson-num">05</div>
+        <h3>Receiving Dollar Payments in Nigeria</h3>
+        <p>
+          Step by step. No confusion, no middleman, no blocked transactions.
+          Works from any Nigerian bank account.
+        </p>
+      </div>
+
+      <div class="lesson">
+        <div class="lesson-num">06</div>
+        <h3>How to Scale Without Burning Out</h3>
+        <p>
+          The outsourcing model that lets you grow your ghostwriting income
+          without trading all your time for money.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- STUDENT RESULTS -->
+<section class="proof">
+
+  <div class="container">
+
+    <div class="proof-header">
+
+      <div class="eyebrow" style="justify-content:center;">
+        <span>Real Student Results</span>
+      </div>
+
+      <h2>
+        Nigerians Just Like You Are Already Winning
+      </h2>
+
+      <p>
+        These are real messages from real students. Shared with permission.
+      </p>
+
+    </div>
+
+    <div class="results-grid">
+
+      <div class="result-item">
+        <img src="result1.png" alt="Student result" />
+      </div>
+
+      <div class="result-item">
+        <img src="result2.png" alt="Student result" />
+      </div>
+
+      <div class="result-item">
+        <img src="result3.jpeg" alt="Student result" />
+      </div>
+
+      <div class="result-item">
+        <img src="result4.jpeg" alt="Student result" />
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA BOTTOM -->
+<div class="cta-bottom">
+
+  <h2>
+    One Training. One Decision.<br/>
+    One Year That Changes Everything.
+  </h2>
+
+  <p>
+    Starts soon. Don't be late.
+  </p>
+
+  <!-- This button can still send people to WhatsApp -->
+  <a
+    href="https://chat.whatsapp.com/JZSQy6MRslqBq34ozqFMco?s=cl&p=i&mlu=0&ilr=4"
+    class="btn-cta"
+  >
+    Reserve My Spot →
+  </a>
+
+</div>
+
+<footer>
+  © 2026 L·EARN Academy · Coach Annie
+  &nbsp;·&nbsp;
+  Results shared reflect individual experiences and will vary.
+  This training is for educational purposes only.
+</footer>
+
+</body>
+</html>
